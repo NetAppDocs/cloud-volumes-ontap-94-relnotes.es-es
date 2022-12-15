@@ -1,0 +1,122 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: Las nuevas versiones de Cloud Volumes ONTAP presentan nuevas funciones, mejoras y correcciones de errores. 
+---
+= Novedades de Cloud Volumes ONTAP 9.4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 9.4 incluye varias funciones y mejoras nuevas.
+
+
+NOTE: También se incluyen funciones y mejoras adicionales en las versiones más recientes de Cloud Manager. Consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Notas de la versión de Cloud Manager"^] para obtener más detalles.
+
+
+
+== Soporte para pago por uso en la región AWS GovCloud (EE. UU.
+
+La versión de pago por uso de Cloud Volumes ONTAP ahora es compatible con la región de AWS GovCloud (EE. UU.) Esto además de admitir la licencia BYOL de Cloud Volumes ONTAP en la región GovCloud (EE. UU.)
+
+Puede implementar Cloud Volumes ONTAP en la región GovCloud (EE. UU.) como cualquier otra región. Vaya a NetApp Cloud Central y inicie Cloud Manager en GovCloud (EE. UU.). A continuación, inicie Cloud Volumes ONTAP PAYGO o BYOL creando un nuevo entorno de trabajo en Cloud Manager.
+
+
+
+== Organización en niveles de los datos fríos con Cloud Volumes ONTAP Premium y BYOL
+
+La versión 9.2 introdujo un nivel de datos automatizado entre un nivel de rendimiento (SSD o HDD) y un nivel de capacidad (un almacén de objetos). Los datos inactivos enviados al nivel de capacidad incluían copias Snapshot de volúmenes de lectura y escritura (la política de organización en niveles de _Snapshot only_) o datos de los volúmenes de destino (la política de organización en niveles de _backup_).
+
+Con Cloud Volumes ONTAP 9.4 Premium y BYOL, ahora tiene una tercera opción: Puede usar la política de organización en niveles _auto_ para organizar los bloques de datos inactivos en un volumen de lectura-escritura en un nivel de capacidad. Los datos inactivos incluyen no solo copias snapshot, sino también datos de usuarios inactivos del sistema de archivos activo.
+
+Si las lecturas aleatorias las leen, los bloques de datos fríos del nivel de capacidad se activan y se mueven al nivel de rendimiento. Si las lecturas secuenciales se leen, como las asociadas con el índice y los análisis antivirus, los bloques de datos inactivos permanecen inactivos y no se mueven al nivel de rendimiento.
+
+Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
+
+
+
+== Organización en niveles de los datos en Microsoft Azure
+
+Ahora puede reducir los costes de almacenamiento de Azure mediante la combinación de un nivel de rendimiento para los datos activos (discos gestionados Premium o Standard) con un nivel de capacidad para los datos inactivos (almacenamiento de Azure Blob). Las mismas políticas de organización en niveles compatibles con AWS también son compatibles con Azure: auto, solo Snapshot y backup.
+
+
+NOTE: La organización en niveles de datos no se admite con el tipo de máquina virtual DS3_v2.
+
+Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
+
+
+
+== Organización en niveles de los datos con SSD de IOPS aprovisionados
+
+La organización en niveles de datos ahora es compatible en AWS con las SSD IOPS aprovisionadas. Puede usar estos SSD como nivel de rendimiento para los datos activos con Amazon S3 como nivel de capacidad de los datos inactivos.
+
+
+
+== Mejor rendimiento al organizar los datos en niveles
+
+El rendimiento de escritura mejorado que se introdujo en las versiones 9.2 y 9.3 ahora es compatible con volúmenes que almacenan en niveles los datos inactivos en un nivel de capacidad de almacén de objetos. Esto es aplicable a los volúmenes creados en nuevos agregados de SSD en Cloud Volumes ONTAP 9.4.
+
+
+
+== Rendimiento mejorado para múltiples cargas de trabajo en AWS
+
+Ahora Cloud Volumes ONTAP tiene ancho de banda adicional para redes en AWS, lo que mejora el rendimiento de los sistemas con múltiples cargas de trabajo. El ancho de banda adicional está disponible para los siguientes tipos de instancias EC2 cuando se actualiza a 9.4 y cuando se implementan los nuevos sistemas 9.4:
+
+* m4.xlarge
+* m4.2xgrande
+* m4.4xgrande
+* c4.4xgrande
+* c4.8x grande
+
+
+
+
+== Los tipos de instancia de EC2 ya no son compatibles
+
+Todas las versiones de Cloud Volumes ONTAP ya no admiten varios tipos de instancias de EC2. Los sistemas existentes que ejecutan estos tipos de instancias seguirán funcionando de forma normal; sin embargo, NetApp recomienda encarecidamente cambiar a otro tipo de instancia.
+
+Para revisar las diferencias de precios entre tipos de instancia y licencias de NetApp, vaya a AWS Marketplace para http://aws.amazon.com/marketplace/pp/B011KEZ734["sistemas de un solo nodo"^] y para http://aws.amazon.com/marketplace/pp/B01H4LVJ84["Parejas de HA"^].
+
+[cols="2*"]
+|===
+| El tipo de instancia ya no es compatible | Tipo de instancia recomendado 
+
+
+| c3.2xgrande | m4.xlarge 
+
+
+| c4.2xgrande | m4.2xgrande 
+
+
+| m3.xlarge | m4.xlarge 
+
+
+| m3.2xgrande | m4.2xgrande 
+
+
+| r3.xlarge | m4.2xgrande 
+
+
+| r3.2xgrande | r4.2xgrande 
+|===
+
+TIP: Los tipos de instancia m3 y R3 no son compatibles con la organización en niveles de datos y el rendimiento mejorado, por lo que el traslado a los tipos de instancia M4 y R4 permite aprovechar esas funciones de Cloud Volumes ONTAP.
+
+
+
+== Notas de actualización
+
+* Las actualizaciones de Cloud Volumes ONTAP se deben completar desde Cloud Manager. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
+* Puede actualizar a Cloud Volumes ONTAP 9.4 desde la versión 9.3.
++
+Para conocer los requisitos de la versión, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html["Documentación de ONTAP 9: Requisitos de actualización del clúster"^].
+
+* La actualización de un único sistema de nodos desconecta el sistema hasta 25 minutos, durante los cuales se interrumpe la I/O.
+* Actualizar un par de alta disponibilidad no provoca interrupciones y la I/o se realiza de forma ininterrumpida. Durante este proceso de actualización no disruptiva, cada nodo se actualiza conjuntamente para seguir proporcionando I/o a los clientes.
+
