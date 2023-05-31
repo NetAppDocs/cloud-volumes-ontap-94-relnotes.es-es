@@ -17,7 +17,7 @@ summary: Las nuevas versiones de Cloud Volumes ONTAP presentan nuevas funciones,
 Cloud Volumes ONTAP 9.4 incluye varias funciones y mejoras nuevas.
 
 
-NOTE: También se incluyen funciones y mejoras adicionales en las versiones más recientes de Cloud Manager. Consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Notas de la versión de Cloud Manager"^] para obtener más detalles.
+NOTE: También se incluyen funciones y mejoras adicionales en las versiones más recientes de Cloud Manager. Consulte https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Notas de la versión de Cloud Manager"^] para obtener más detalles.
 
 
 
@@ -37,7 +37,7 @@ Con Cloud Volumes ONTAP 9.4 Premium y BYOL, ahora tiene una tercera opción: Pue
 
 Si las lecturas aleatorias las leen, los bloques de datos fríos del nivel de capacidad se activan y se mueven al nivel de rendimiento. Si las lecturas secuenciales se leen, como las asociadas con el índice y los análisis antivirus, los bloques de datos inactivos permanecen inactivos y no se mueven al nivel de rendimiento.
 
-Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
+Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
 
 
 
@@ -48,7 +48,7 @@ Ahora puede reducir los costes de almacenamiento de Azure mediante la combinaci�
 
 NOTE: La organización en niveles de datos no se admite con el tipo de máquina virtual DS3_v2.
 
-Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
+Se puede elegir la política de organización en niveles al crear o editar un volumen en Cloud Manager. Para obtener más información, consulte https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-tiering.html["Documentación de Cloud Manager"].
 
 
 
