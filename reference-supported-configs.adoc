@@ -18,6 +18,7 @@ Cloud Volumes ONTAP está disponible en AWS y Azure con dos opciones de precios:
 
 
 
+[[cloud-volumes-ontap-for-aws]]
 == Cloud Volumes ONTAP para AWS
 
 En AWS, puede poner en marcha Cloud Volumes ONTAP como un único sistema o como un par de alta disponibilidad.
@@ -65,6 +66,7 @@ Notas:
 
 
 
+[[cloud-volumes-ontap-for-azure]]
 == Cloud Volumes ONTAP para Azure
 
 En Azure, puede poner en marcha Cloud Volumes ONTAP como un sistema de nodos únicos.

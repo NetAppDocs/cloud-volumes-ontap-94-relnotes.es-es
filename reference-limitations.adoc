@@ -18,48 +18,56 @@ Las limitaciones conocidas identifican plataformas, dispositivos o funciones que
 
 
 
+[[general-limitations]]
 == Limitaciones generales
 
 Las siguientes limitaciones se aplican a Cloud Volumes ONTAP en AWS y en Azure.
 
 
 
+[[maximum-concurrent-replication-operations]]
 === Máximo de operaciones de replicación simultáneas
 
 El número máximo de transferencias simultáneas de SnapMirror o SnapVault para Cloud Volumes ONTAP es 100 por nodo, independientemente del tipo de instancia o de tipo de máquina.
 
 
 
+[[software-updates-must-be-completed-by-cloud-manager]]
 === Cloud Manager debe completar las actualizaciones de software
 
 Las actualizaciones de Cloud Volumes ONTAP se deben completar desde Cloud Manager. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
 
 
 
+[[encryption-is-not-supported-on-boot-and-root-disks]]
 === El cifrado no es compatible con los discos raíz y de arranque
 
 Si habilitó una opción de su proveedor de cloud que cifra automáticamente todos los volúmenes o discos nuevos, debe deshabilitar temporalmente esa opción cuando ponga en marcha Cloud Volumes ONTAP. Si no lo hace, la implementación de Cloud Volumes ONTAP fallará. El cifrado no se admite en los discos raíz y de arranque del sistema Cloud Volumes ONTAP.
 
 
 
+[[cloud-volumes-ontap-deployment-must-not-be-modified-from-your-cloud-providers-console]]
 === La implementación de Cloud Volumes ONTAP no se debe modificar desde la consola de su proveedor de cloud
 
 Los cambios realizados en una configuración de Cloud Volumes ONTAP desde la consola del proveedor de cloud dan como resultado una configuración no compatible. Cualquier cambio en los recursos de Cloud Volumes ONTAP que cree y gestione Cloud Manager puede afectar a la estabilidad del sistema y a la capacidad de Cloud Manager para gestionar el sistema.
 
 
 
+[[disks-and-aggregates-must-be-managed-from-cloud-manager]]
 === Los discos y los agregados deben gestionarse desde Cloud Manager
 
 Todos los discos y agregados deben crearse y eliminarse directamente desde Cloud Manager. No debe realizar estas acciones desde otra herramienta de gestión. De esta manera, se puede afectar a la estabilidad del sistema, se puede obstaculizar la capacidad de añadir discos en el futuro y generar potencialmente cuotas redundantes para proveedores de cloud.
 
 
 
+[[snapmanager-licensing-limitation]]
 === Limitación de la licencia de SnapManager
 
 Las licencias de SnapManager por servidor son compatibles con Cloud Volumes ONTAP. No se admiten licencias por sistema de almacenamiento (suite SnapManager).
 
 
 
+[[unsupported-ontap-features]]
 === Funciones ONTAP no compatibles
 
 Cloud Volumes ONTAP no admite las siguientes funciones:
@@ -86,24 +94,28 @@ Cloud Volumes ONTAP no admite las siguientes funciones:
 
 
 
+[[known-limitations-in-aws]]
 == Limitaciones conocidas en AWS
 
 Las siguientes limitaciones conocidas afectan a Cloud Volumes ONTAP en AWS.
 
 
 
+[[false-alarms-reported-by-amazon-cloudwatch]]
 === Alarmas falsas notificadas por Amazon CloudWatch
 
 Cloud Volumes ONTAP no libera CPU cuando está inactivo, por lo que Amazon CloudWatch puede generar una advertencia de CPU alta para la instancia de EC2 porque detecta un uso del 100 %. Puede ignorar esta alarma. El comando ONTAP statistics muestra el uso real de las CPU.
 
 
 
+[[cloud-volumes-ontap-ha-pairs-do-not-support-immediate-storage-giveback]]
 === Los pares de alta disponibilidad de Cloud Volumes ONTAP no admiten la devolución inmediata del almacenamiento
 
 Cuando un nodo se reinicia, el partner debe sincronizar los datos para que puedan devolver el almacenamiento. El tiempo que tarda en resincronizar los datos depende de la cantidad de datos escritos por los clientes mientras el nodo estaba inactivo y de la velocidad de escritura de datos durante el momento de la restauración.
 
 
 
+[[limitations-with-the-aws-govcloud-us-region]]
 === Limitaciones en la región de AWS GovCloud (EE. UU.
 
 * Cloud Manager debe ponerse en marcha en una región de AWS GovCloud (EE. UU.) si desea iniciar instancias de Cloud Volumes ONTAP en cualquier región de AWS GovCloud (EE. UU.)
@@ -112,12 +124,14 @@ Cuando un nodo se reinicia, el partner debe sincronizar los datos para que pueda
 
 
 
+[[detaching-and-reattaching-ebs-volumes-is-not-supported]]
 === No se puede desvincular ni volver a asociar volúmenes de EBS
 
 No se pueden desvincular un volumen de EBS de una instancia de Cloud Volumes ONTAP y, después, volver a conectarlo a otra instancia de Cloud Volumes ONTAP. Debe utilizar Cloud Manager para replicar datos entre instancias.
 
 
 
+[[encryption-limitations]]
 === Limitaciones en el cifrado
 
 * El movimiento de LUN no es compatible con sistemas que tienen habilitado el cifrado de Cloud Volumes ONTAP.

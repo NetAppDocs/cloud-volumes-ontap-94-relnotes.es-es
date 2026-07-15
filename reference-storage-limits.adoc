@@ -18,6 +18,7 @@ Cloud Volumes ONTAP tiene límites de configuración de almacenamiento para prop
 
 
 
+[[maximum-system-capacity-by-license]]
 == Capacidad máxima del sistema por licencia
 
 La capacidad máxima del sistema para un sistema Cloud Volumes ONTAP viene determinada por su licencia. La capacidad máxima del sistema incluye almacenamiento basado en disco y almacenamiento de objetos utilizado para la organización en niveles de datos. NetApp no admite superar este límite.
@@ -48,6 +49,7 @@ No, no lo hace. Los datos de una pareja de alta disponibilidad de AWS se replica
 
 
 
+[[aggregate-and-disk-limits-for-cloud-volumes-ontap-in-aws]]
 == Límites de agregados y discos para Cloud Volumes ONTAP en AWS
 
 En Cloud Volumes ONTAP 9.4, todos los tipos de instancias de EC2 pueden alcanzar el límite de capacidad de 368 TIB mediante el almacenamiento EBS solo, o bien mediante el almacenamiento EBS y la organización en niveles en S3 (tanto de nodo único como de alta disponibilidad).
@@ -84,6 +86,7 @@ Notas:
 
 
 
+[[aggregate-and-disk-limits-for-cloud-volumes-ontap-in-azure]]
 == Límites de agregados y discos para Cloud Volumes ONTAP en Azure
 
 [cols="3*"]
@@ -117,6 +120,7 @@ Notas:
 
 
 
+[[capacity-and-disk-limits-by-azure-vm-size]]
 === Límites de capacidad y disco por tamaño de máquina virtual de Azure
 
 En Azure, los sistemas de un solo nodo pueden usar discos gestionados por HDD estándar, discos gestionados por SSD estándar y discos gestionados por SSD Premium, con hasta 32 TIB por disco. La cantidad de discos admitidos varía según el tamaño de la máquina virtual.
@@ -179,6 +183,7 @@ NOTE: En algunos tipos de equipos virtuales, necesitará varias licencias de BYO
 |===
 
 
+[[logical-storage-limits]]
 == Límites de almacenamiento lógico
 
 [cols="22,22,56"]
@@ -226,6 +231,7 @@ Notas:
 
 
 
+[[iscsi-storage-limits]]
 == Límites de almacenamiento de iSCSI
 
 [cols="3*"]

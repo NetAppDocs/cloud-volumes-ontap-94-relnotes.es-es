@@ -21,6 +21,7 @@ NOTE: También se incluyen funciones y mejoras adicionales en las versiones más
 
 
 
+[[support-for-pay-as-you-go-in-the-aws-govcloud-us-region]]
 == Soporte para pago por uso en la región AWS GovCloud (EE. UU.
 
 La versión de pago por uso de Cloud Volumes ONTAP ahora es compatible con la región de AWS GovCloud (EE. UU.) Esto además de admitir la licencia BYOL de Cloud Volumes ONTAP en la región GovCloud (EE. UU.)
@@ -29,6 +30,7 @@ Puede implementar Cloud Volumes ONTAP en la región GovCloud (EE. UU.) como cual
 
 
 
+[[tiering-cold-data-with-cloud-volumes-ontap-premium-and-byol]]
 == Organización en niveles de los datos fríos con Cloud Volumes ONTAP Premium y BYOL
 
 La versión 9.2 introdujo un nivel de datos automatizado entre un nivel de rendimiento (SSD o HDD) y un nivel de capacidad (un almacén de objetos). Los datos inactivos enviados al nivel de capacidad incluían copias Snapshot de volúmenes de lectura y escritura (la política de organización en niveles de _Snapshot only_) o datos de los volúmenes de destino (la política de organización en niveles de _backup_).
@@ -41,6 +43,7 @@ Se puede elegir la política de organización en niveles al crear o editar un vo
 
 
 
+[[data-tiering-in-microsoft-azure]]
 == Organización en niveles de los datos en Microsoft Azure
 
 Ahora puede reducir los costes de almacenamiento de Azure mediante la combinación de un nivel de rendimiento para los datos activos (discos gestionados Premium o Standard) con un nivel de capacidad para los datos inactivos (almacenamiento de Azure Blob). Las mismas políticas de organización en niveles compatibles con AWS también son compatibles con Azure: auto, solo Snapshot y backup.
@@ -52,18 +55,21 @@ Se puede elegir la política de organización en niveles al crear o editar un vo
 
 
 
+[[data-tiering-with-provisioned-iops-ssds]]
 == Organización en niveles de los datos con SSD de IOPS aprovisionados
 
 La organización en niveles de datos ahora es compatible en AWS con las SSD IOPS aprovisionadas. Puede usar estos SSD como nivel de rendimiento para los datos activos con Amazon S3 como nivel de capacidad de los datos inactivos.
 
 
 
+[[improved-performance-when-tiering-data]]
 == Mejor rendimiento al organizar los datos en niveles
 
 El rendimiento de escritura mejorado que se introdujo en las versiones 9.2 y 9.3 ahora es compatible con volúmenes que almacenan en niveles los datos inactivos en un nivel de capacidad de almacén de objetos. Esto es aplicable a los volúmenes creados en nuevos agregados de SSD en Cloud Volumes ONTAP 9.4.
 
 
 
+[[improved-performance-for-multiple-workloads-in-aws]]
 == Rendimiento mejorado para múltiples cargas de trabajo en AWS
 
 Ahora Cloud Volumes ONTAP tiene ancho de banda adicional para redes en AWS, lo que mejora el rendimiento de los sistemas con múltiples cargas de trabajo. El ancho de banda adicional está disponible para los siguientes tipos de instancias EC2 cuando se actualiza a 9.4 y cuando se implementan los nuevos sistemas 9.4:
@@ -77,6 +83,7 @@ Ahora Cloud Volumes ONTAP tiene ancho de banda adicional para redes en AWS, lo q
 
 
 
+[[ec2-instance-types-no-longer-supported]]
 == Los tipos de instancia de EC2 ya no son compatibles
 
 Todas las versiones de Cloud Volumes ONTAP ya no admiten varios tipos de instancias de EC2. Los sistemas existentes que ejecutan estos tipos de instancias seguirán funcionando de forma normal; sin embargo, NetApp recomienda encarecidamente cambiar a otro tipo de instancia.
@@ -110,6 +117,7 @@ TIP: Los tipos de instancia m3 y R3 no son compatibles con la organización en n
 
 
 
+[[upgrade-notes]]
 == Notas de actualización
 
 * Las actualizaciones de Cloud Volumes ONTAP se deben completar desde Cloud Manager. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
